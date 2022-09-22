@@ -8,7 +8,7 @@ const GameInConsole = db.define('gameInConsole', {
     type: DataTypes.INTEGER,
   },
   consoleId: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   gameId: {
@@ -18,7 +18,7 @@ const GameInConsole = db.define('gameInConsole', {
   status: {
 
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     defaultValue: 'active'
   }
 })

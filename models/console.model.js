@@ -12,14 +12,12 @@ const Console = db.define('console', {
     allowNull: false,
   },
   company: {
-
+    type: DataTypes.STRING,
     allowNull: false,
-    type: DataTypes.INTEGER,
   },
   status: {
-
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     defaultValue: 'active'
   }
 })

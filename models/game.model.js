@@ -12,14 +12,12 @@ const Game = db.define('game', {
     allowNull: false,
   },
   company: {
-
+    type: DataTypes.STRING,
     allowNull: false,
-    type: DataTypes.INTEGER,
   },
   status: {
-
+    type: DataTypes.STRING,
     allowNull: false,
-    type: DataTypes.INTEGER,
     defaultValue: 'active'
   }
 })
