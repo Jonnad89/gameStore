@@ -2,6 +2,7 @@ const express = require('express');
 //Models
 
 const { usersRouter } = require('./routes/users.routes')
+const { gamesRouter } = require('./routes/games.routes')
 
 const { globalErrorHandler } = require('./controllers/error.controller')
 
@@ -11,6 +12,8 @@ const app = express();
 app.use(express.json()); //* Middleware 
 //Define endpoints
 app.use('/api/v1/users', usersRouter);//exportado de users.routes
+
+app.use('api/v1/games', gamesRouter)
 
 //Global error handler
 app.use(globalErrorHandler)
