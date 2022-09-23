@@ -1,29 +1,33 @@
 const express = require('express');
-//Models
 
-const { usersRouter } = require('./routes/users.routes')
-const { gamesRouter } = require('./routes/games.routes')
+// Routers
+const { usersRouter } = require('./routes/users.routes');
+const { gamesRouter } = require('./routes/games.routes');
+const { consolesRouter } = require('./routes/console.routes');
 
-const { globalErrorHandler } = require('./controllers/error.controller')
+// Controllers
+const { globalErrorHandler } = require('./controllers/error.controller');
 
-//* init our Express
+// Init our Express app
 const app = express();
-//* Enable express app to receive JSON data
-app.use(express.json()); //* Middleware 
-//Define endpoints
-app.use('/api/v1/users', usersRouter);//exportado de users.routes
 
-app.use('api/v1/games', gamesRouter)
+// Enable Express app to receive JSON data
+app.use(express.json());
 
-//Global error handler
-app.use(globalErrorHandler)
+// Define endpoints
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/games', gamesRouter);
+app.use('/api/v1/consoles', consolesRouter);
 
-//Catch non-existing endpoinst
+// Global error handler
+app.use(globalErrorHandler);
+
+// Catch non-existing endpoints
 app.all('*', (req, res) => {
   res.status(404).json({
     status: 'error',
-    message: `${req.method} ${res.url} does not exists in our server`,
+    message: `${req.method} ${req.url} does not exists in our server`,
   });
 });
 
-module.exports = { app }
+module.exports = { app };

@@ -14,23 +14,22 @@ const User = db.define('user', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
-
   },
   role: {
     type: DataTypes.STRING,
     defaultValue: 'normal',
-    allowNull: false
+    allowNull: false,
   },
   status: {
-    type: DataTypes.STRING, //active, disconnect, banned, deleted estado de la cuenta del usuario
+    type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: 'active'
+    defaultValue: 'active',
   },
 });
 
-module.exports = { User }
+module.exports = { User };

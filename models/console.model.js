@@ -1,4 +1,4 @@
-const { db, DataTypes } = require('../utils/database.util')
+const { db, DataTypes } = require('../utils/database.util');
 
 const Console = db.define('console', {
   id: {
@@ -16,10 +16,10 @@ const Console = db.define('console', {
     allowNull: false,
   },
   status: {
-    allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: 'active'
-  }
-})
+    allowNull: false,
+    defaultValue: 'active',
+  },
+});
 
-module.exports = { Console }
+module.exports = { Console };

@@ -78,9 +78,9 @@ const login = catchAsync(async (req, res, next) => {
   const user = await User.findOne({
     where: { email, status: 'active' }
   })
-  if (!user || (await bcrypt.compare(password, user.password))) {
-    return next(new AppError('Wrong credentials', 400));
-  }
+  // if (!user || (await bcrypt.compare(password, user.password))) {
+  //   return next(new AppError('Wrong credentials', 400));
+  // }
 
   user.password = undefined
 

@@ -1,4 +1,4 @@
-const { db, DataTypes } = require('../utils/database.util')
+const { db, DataTypes } = require('../utils/database.util');
 
 const Review = db.define('review', {
   id: {
@@ -17,13 +17,13 @@ const Review = db.define('review', {
   },
   comment: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   status: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: 'active'
-  }
-})
+    defaultValue: 'active',
+  },
+});
 
-module.exports = { Review }
+module.exports = { Review };

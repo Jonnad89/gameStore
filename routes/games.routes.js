@@ -1,28 +1,30 @@
-const express = require('express')
+const express = require('express');
 
+// Controller
 const {
   createGame,
   getAllGames,
   updateGame,
   deleteGame,
-  createReview
-} = require('../controllers/games.controller')
+  createReview,
+} = require('../controllers/games.controller');
 
-const { protectSession } = require('../middlewares/auth.middleware')
-const { gameExists } = require('../middlewares/games.middleware')
+// Middlewares
+const { protectSession } = require('../middlewares/auth.middleware');
+const { gameExists } = require('../middlewares/games.middleware');
 
-const gamesRouter = express.Router()
+const gamesRouter = express.Router();
 
-gamesRouter.get('/', getAllGames)
+gamesRouter.get('/', getAllGames);
 
-gamesRouter.use(protectSession)
+gamesRouter.use(protectSession);
 
-gamesRouter.post('/', createGame)
+gamesRouter.post('/', createGame);
 
-gamesRouter.patch('/:id', gameExists, updateGame)
+gamesRouter.patch('/:id', gameExists, updateGame);
 
-gamesRouter.delete('/:id', gameExists, deleteGame)
+gamesRouter.delete('/:id', gameExists, deleteGame);
 
-gamesRouter.post('/reviews/:gameId', createReview)
+gamesRouter.post('/reviews/:gameId', createReview);
 
-module.exports = { gamesRouter }
+module.exports = { gamesRouter };

@@ -1,21 +1,21 @@
-const { Game } = require("../models/game.model");
+// Models
+const { Game } = require('../models/game.model');
 
-
-const { catchAsync } = require("../utils/catchAsync.util");
-const { AppError } = require("../utils/appError.util");
+// Utils
+const { catchAsync } = require('../utils/catchAsync.util');
+const { AppError } = require('../utils/appError.util');
 
 const gameExists = catchAsync(async (req, res, next) => {
-  const { id } = req.params
+  const { id } = req.params;
 
-  const game = await Game.findOne({ where: { id, status: 'active' } })
+  const game = await Game.findOne({ where: { id, status: 'active' } });
 
   if (!game) {
-    return next(new AppError('Game does not exists', 404))
+    return next(new AppError('Game does not exists', 404));
   }
 
-  req.game = game
+  req.game = game;
+  next();
+});
 
-  next()
-})
-
-module.exports = { gameExists }
+module.exports = { gameExists };
